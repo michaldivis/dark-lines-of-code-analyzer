@@ -21,6 +21,14 @@
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+
+    <Title>DarkLinesOfCodeAnalyzer</Title>
+
+    <Product>DarkLinesOfCodeAnalyzer</Product>
+
+    <NeutralLanguage>en</NeutralLanguage>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
