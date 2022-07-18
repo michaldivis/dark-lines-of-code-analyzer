@@ -8,17 +8,27 @@ namespace DarkLinesOfCodeAnalyzer
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class DarkLinesOfCodeAnalyzerAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "DarkLinesOfCodeAnalyzer";
-        public const int MaxLinesOfCode = 100;
+        private const string _projectUrl = "https://github.com/michaldivis/dark-lines-of-code-analyzer";
+        private const string _diagnosticId = "DarkLinesOfCodeAnalyzer";
+        private const int _maxLinesOfCode = 100;
 
-        private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
-        private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private const string Category = "Design";
+        private const string _title = "The file contains too many lines of code";
+        private const string _messageFormat = "'{0}' lines of code found. Maximum recommended amount is {1} lines";
+        private const string _description = "A file shouldn't contain too many lines of code";
 
-        private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Info, isEnabledByDefault: true, description: Description);
+        private const string _category = "Design";
 
-        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
+        private static readonly DiagnosticDescriptor _rule = 
+            new DiagnosticDescriptor(_diagnosticId, 
+                _title, 
+                _messageFormat, 
+                _category, 
+                DiagnosticSeverity.Info, 
+                isEnabledByDefault: true, 
+                description: _description, 
+                helpLinkUri: _projectUrl);
+
+        public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
 
         public override void Initialize(AnalysisContext context)
         {
@@ -32,10 +42,10 @@ namespace DarkLinesOfCodeAnalyzer
         {
             var amountOfLines = context.Tree.GetText().Lines.Count;
 
-            if (amountOfLines > MaxLinesOfCode)
+            if (amountOfLines > _maxLinesOfCode)
             {
                 var location = context.Tree.GetLocation(context.Tree.GetText().Lines.FirstOrDefault().Span);
-                var diagnostic = Diagnostic.Create(Rule, location, amountOfLines, MaxLinesOfCode);
+                var diagnostic = Diagnostic.Create(_rule, location, amountOfLines, _maxLinesOfCode);
                 context.ReportDiagnostic(diagnostic);
             }
         }
