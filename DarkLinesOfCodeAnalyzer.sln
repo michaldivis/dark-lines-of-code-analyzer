@@ -20,6 +20,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoConsoleApp", "demos\Dem
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{40B35BF2-D0EB-4BBF-8EAE-4F71A1686F4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{26AB14E0-23D4-4DA0-8585-5958A487E616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,8 @@ Global
 		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B35BF2-D0EB-4BBF-8EAE-4F71A1686F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B35BF2-D0EB-4BBF-8EAE-4F71A1686F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{8902D732-DBE1-4B73-98DE-8F89158F0323} = {13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}
 		{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB} = {13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}
 		{7AE37B81-BFB3-4397-AB35-EB281657D6B0} = {0B53752D-4D32-4666-B663-0D23C15A9DF7}
+		{40B35BF2-D0EB-4BBF-8EAE-4F71A1686F4E} = {26AB14E0-23D4-4DA0-8585-5958A487E616}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA2B9DFD-5B89-480D-B119-46355F32E41E}
