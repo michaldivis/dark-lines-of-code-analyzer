@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="Divis.DarkLinesOfCodeAnalyzer" Version="0.3.1" Language="en-US" Publisher="Michal Diviš"/>
+    <Identity Id="Divis.DarkLinesOfCodeAnalyzer" Version="0.4.0" Language="en-US" Publisher="Michal Diviš"/>
     <DisplayName>DarkLinesOfCodeAnalyzer</DisplayName>
 	  <Description xml:space="preserve">A Roslyn analyzer that checks the amount of lines of code in your files.</Description>
   </Metadata>
