@@ -61,7 +61,7 @@ namespace DarkLinesOfCodeAnalyzer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A file shouldn&apos;t contain too many lines of code.
+        ///   Looks up a localized string similar to A class should contain an average of less than 30 methods, resulting in up to 900 lines of code.
         /// </summary>
         internal static string DL0100Description {
             get {
@@ -88,7 +88,7 @@ namespace DarkLinesOfCodeAnalyzer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A method shouldn&apos;t contain too many lines of code.
+        ///   Looks up a localized string similar to Methods should not have more than an average of 30 code lines (not counting line spaces and comments).
         /// </summary>
         internal static string DL0200Description {
             get {

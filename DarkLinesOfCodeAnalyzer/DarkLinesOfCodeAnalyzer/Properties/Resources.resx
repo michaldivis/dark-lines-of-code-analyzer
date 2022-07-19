@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DL0100Description" xml:space="preserve">
-    <value>A file shouldn't contain too many lines of code</value>
+    <value>A class should contain an average of less than 30 methods, resulting in up to 900 lines of code</value>
   </data>
   <data name="DL0100Message" xml:space="preserve">
     <value>The file contains {0} lines of code, maximum recommended amount of lines per file is {1} lines</value>
@@ -127,7 +127,7 @@
     <value>The file contains too many lines of code</value>
   </data>
   <data name="DL0200Description" xml:space="preserve">
-    <value>A method shouldn't contain too many lines of code</value>
+    <value>Methods should not have more than an average of 30 code lines (not counting line spaces and comments)</value>
   </data>
   <data name="DL0200Message" xml:space="preserve">
     <value>The method '{0}' contains {1} lines of code, maximum recommended amount of lines per method is {2} lines</value>

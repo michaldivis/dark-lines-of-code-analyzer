@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{0B53752D-4D32-4666-B663-0D23C15A9DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoConsoleApp", "demos\DemoConsoleApp\DemoConsoleApp.csproj", "{7AE37B81-BFB3-4397-AB35-EB281657D6B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +36,16 @@ Global
 		{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE37B81-BFB3-4397-AB35-EB281657D6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7AE37B81-BFB3-4397-AB35-EB281657D6B0} = {0B53752D-4D32-4666-B663-0D23C15A9DF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA2B9DFD-5B89-480D-B119-46355F32E41E}
