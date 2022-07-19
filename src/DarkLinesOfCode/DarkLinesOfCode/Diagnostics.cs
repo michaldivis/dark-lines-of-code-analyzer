@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 
-namespace DarkLinesOfCodeAnalyzer
+namespace DarkLinesOfCode
 {
     internal static class Diagnostics
     {
@@ -21,7 +21,7 @@ namespace DarkLinesOfCodeAnalyzer
                 DL0100Title,
                 DL0100Message,
                 Category,
-                DiagnosticSeverity.Info,
+                DiagnosticSeverity.Warning,
                 isEnabledByDefault: true,
                 description: DL0100Description,
                 helpLinkUri: Constants.ProjectUrl);
@@ -32,7 +32,7 @@ namespace DarkLinesOfCodeAnalyzer
                 DL0200Title,
                 DL0200Message,
                 Category,
-                DiagnosticSeverity.Info,
+                DiagnosticSeverity.Warning,
                 isEnabledByDefault: true,
                 description: DL0200Description,
                 helpLinkUri: Constants.ProjectUrl);

@@ -1,4 +1,4 @@
-﻿namespace DarkLinesOfCodeAnalyzer
+﻿namespace DarkLinesOfCode
 {
     internal static class DiagnosticIds
     {

@@ -24,5 +24,5 @@ PM> Install-Package Divis.DarkLinesOfCodeAnalyzer
 
 The analyzer is very basic at the moment, the planned feature roadmap:
 - ✅ max 900 lines per file
-- ✅ max 30 lines per method
+- ✅ max 30 lines per class
 - 🔲 ignore blank lines

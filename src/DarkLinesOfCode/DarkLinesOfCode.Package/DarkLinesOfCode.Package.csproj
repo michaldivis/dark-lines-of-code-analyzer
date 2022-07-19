@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>Divis.DarkLinesOfCodeAnalyzer</PackageId>
+		<PackageVersion>0.3.1</PackageVersion>
+		<Authors>Michal Diviš</Authors>
+		<PackageProjectUrl>https://github.com/michaldivis/dark-lines-of-code-analyzer</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/michaldivis/dark-lines-of-code-analyzer</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Description>A Roslyn analyzer that checks the amount of lines of code in your files</Description>
+		<PackageReleaseNotes>See https://github.com/michaldivis/dark-lines-of-code-analyzer/releases.</PackageReleaseNotes>
+		<PackageTags>analyzers, lines of code, amount of lines</PackageTags>
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+
+		<Title>DarkLinesOfCodeAnalyzer</Title>
+
+		<Product>DarkLinesOfCodeAnalyzer</Product>
+
+		<NeutralLanguage>en</NeutralLanguage>
+
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DarkLinesOfCode\DarkLinesOfCode.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\DarkLinesOfCode.dll" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+  </Target>
+
+</Project>

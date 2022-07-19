@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DarkLinesOfCodeAnalyzer {
+namespace DarkLinesOfCode {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DarkLinesOfCodeAnalyzer {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DarkLinesOfCodeAnalyzer.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DarkLinesOfCode.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,7 +70,7 @@ namespace DarkLinesOfCodeAnalyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The class &apos;{0}&apos; contains {1} lines of code, maximum recommended amount of lines per file is {2} lines.
+        ///   Looks up a localized string similar to The class &apos;{0}&apos; contains {1} lines of code, maximum recommended amount of lines per class is {2} lines.
         /// </summary>
         internal static string DL0100Message {
             get {

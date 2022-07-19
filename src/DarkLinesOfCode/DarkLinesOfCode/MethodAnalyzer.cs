@@ -1,23 +1,23 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace DarkLinesOfCodeAnalyzer
+namespace DarkLinesOfCode
 {
-    internal static class ConstructorAnalyzer
+    internal static class MethodAnalyzer
     {
         public static void Analyze(SyntaxNodeAnalysisContext context)
         {
-            if (!(context.Node is ConstructorDeclarationSyntax ctorSyntax))
+            if (!(context.Node is MethodDeclarationSyntax methodSyntax))
             {
                 return;
             }
 
-            var amountOfLines = ctorSyntax.GetText().Lines.Count;
+            var amountOfLines = methodSyntax.GetText().Lines.Count;
 
             if (amountOfLines > Constants.MaxLinesPerMethod)
             {
                 var location = context.Node.GetLocation();
-                Diagnostics.ReportMethodTooLong(context, location, ctorSyntax.Identifier.ValueText, amountOfLines);
+                Diagnostics.ReportMethodTooLong(context, location, methodSyntax.Identifier.ValueText, amountOfLines);
             }
         }
     }

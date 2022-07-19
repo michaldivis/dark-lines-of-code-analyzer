@@ -1,7 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace DarkLinesOfCodeAnalyzer
+namespace DarkLinesOfCode
 {
     internal static class ClassAnalyzer
     {
@@ -17,7 +17,7 @@ namespace DarkLinesOfCodeAnalyzer
             if (amountOfLines > Constants.MaxLinesPerClass)
             {
                 var location = context.Node.GetLocation();
-                Diagnostics.ReportClassTooLong(context, location, $"{classSyntax.Identifier.ValueText} ctor", amountOfLines);
+                Diagnostics.ReportClassTooLong(context, location, classSyntax.Identifier.ValueText, amountOfLines);
             }
         }
     }

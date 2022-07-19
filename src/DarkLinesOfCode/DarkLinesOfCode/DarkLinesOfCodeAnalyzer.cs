@@ -5,7 +5,7 @@ using System;
 using System.Collections.Immutable;
 using System.Text.RegularExpressions;
 
-namespace DarkLinesOfCodeAnalyzer
+namespace DarkLinesOfCode
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class DarkLinesOfCodeAnalyzer : DiagnosticAnalyzer
