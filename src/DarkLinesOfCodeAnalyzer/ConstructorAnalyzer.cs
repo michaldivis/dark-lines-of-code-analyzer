@@ -3,21 +3,21 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace DarkLinesOfCodeAnalyzer
 {
-    internal static class ClassAnalyzer
+    internal static class ConstructorAnalyzer
     {
         public static void Analyze(SyntaxNodeAnalysisContext context)
         {
-            if (!(context.Node is ClassDeclarationSyntax classSyntax))
+            if (!(context.Node is ConstructorDeclarationSyntax ctorSyntax))
             {
                 return;
             }
 
-            var amountOfLines = classSyntax.GetText().Lines.Count;
+            var amountOfLines = ctorSyntax.GetText().Lines.Count;
 
-            if (amountOfLines > Constants.MaxLinesPerClass)
+            if (amountOfLines > Constants.MaxLinesPerMethod)
             {
                 var location = context.Node.GetLocation();
-                Diagnostics.ReportClassTooLong(context, location, $"{classSyntax.Identifier.ValueText} ctor", amountOfLines);
+                Diagnostics.ReportMethodTooLong(context, location, ctorSyntax.Identifier.ValueText, amountOfLines);
             }
         }
     }

@@ -27,7 +27,7 @@ namespace DarkLinesOfCodeAnalyzer
                 DiagnosticSeverity.Info,
                 isEnabledByDefault: true,
                 description: DL0100Description,
-                helpLinkUri: Contants.ProjectUrl);
+                helpLinkUri: Constants.ProjectUrl);
 
         private static readonly DiagnosticDescriptor MethodTooLong =
             new DiagnosticDescriptor(
@@ -38,17 +38,17 @@ namespace DarkLinesOfCodeAnalyzer
                 DiagnosticSeverity.Info,
                 isEnabledByDefault: true,
                 description: DL0200Description,
-                helpLinkUri: Contants.ProjectUrl);
+                helpLinkUri: Constants.ProjectUrl);
 
-        public static void ReportClassTooLong(SyntaxNodeAnalysisContext context, Location location, string className, int amountOfLines, int maxLinesPerClass)
+        public static void ReportClassTooLong(SyntaxNodeAnalysisContext context, Location location, string className, int amountOfLines)
         {
-            var diagnostic = Diagnostic.Create(ClassTooLong, location, className, amountOfLines, maxLinesPerClass);
+            var diagnostic = Diagnostic.Create(ClassTooLong, location, className, amountOfLines, Constants.MaxLinesPerClass);
             context.ReportDiagnostic(diagnostic);
         }
 
-        public static void ReportMethodTooLong(SyntaxNodeAnalysisContext context, Location location, string methodName, int amountOfLines, int maxLinesPerMethod)
+        public static void ReportMethodTooLong(SyntaxNodeAnalysisContext context, Location location, string methodName, int amountOfLines)
         {
-            var diagnostic = Diagnostic.Create(MethodTooLong, location, methodName, amountOfLines, maxLinesPerMethod);
+            var diagnostic = Diagnostic.Create(MethodTooLong, location, methodName, amountOfLines, Constants.MaxLinesPerMethod);
             context.ReportDiagnostic(diagnostic);
         }
 

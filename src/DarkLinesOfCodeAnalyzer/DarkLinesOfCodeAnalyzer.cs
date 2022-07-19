@@ -19,6 +19,7 @@ namespace DarkLinesOfCodeAnalyzer
 
             context.RegisterSyntaxNodeAction(AnalyzeClassDeclaration, SyntaxKind.ClassDeclaration);
             context.RegisterSyntaxNodeAction(AnalyzeMethodDeclaration, SyntaxKind.MethodDeclaration);
+            context.RegisterSyntaxNodeAction(AnalyzeConstructorDeclaration, SyntaxKind.ConstructorDeclaration);
         }
 
         private static void AnalyzeClassDeclaration(SyntaxNodeAnalysisContext context)
@@ -29,6 +30,11 @@ namespace DarkLinesOfCodeAnalyzer
         private static void AnalyzeMethodDeclaration(SyntaxNodeAnalysisContext context)
         {
             HandleAnalyze(() => MethodAnalyzer.Analyze(context));
+        }
+
+        private static void AnalyzeConstructorDeclaration(SyntaxNodeAnalysisContext context)
+        {
+            HandleAnalyze(() => ConstructorAnalyzer.Analyze(context));
         }
 
         private static void HandleAnalyze(Action analyze)

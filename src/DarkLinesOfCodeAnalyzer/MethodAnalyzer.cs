@@ -5,8 +5,6 @@ namespace DarkLinesOfCodeAnalyzer
 {
     internal static class MethodAnalyzer
     {
-        private const int _maxLinesPerMethod = 30;
-
         public static void Analyze(SyntaxNodeAnalysisContext context)
         {
             if (!(context.Node is MethodDeclarationSyntax methodSyntax))
@@ -16,10 +14,10 @@ namespace DarkLinesOfCodeAnalyzer
 
             var amountOfLines = methodSyntax.GetText().Lines.Count;
 
-            if (amountOfLines > _maxLinesPerMethod)
+            if (amountOfLines > Constants.MaxLinesPerMethod)
             {
                 var location = context.Node.GetLocation();
-                Diagnostics.ReportMethodTooLong(context, location, methodSyntax.Identifier.ValueText, amountOfLines, _maxLinesPerMethod);
+                Diagnostics.ReportMethodTooLong(context, location, methodSyntax.Identifier.ValueText, amountOfLines);
             }
         }
     }
