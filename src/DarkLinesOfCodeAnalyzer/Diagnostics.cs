@@ -8,7 +8,7 @@ namespace DarkLinesOfCodeAnalyzer
 {
     internal static class Diagnostics
     {
-        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = ImmutableArray.Create(FileTooLong, MethodTooLong);
+        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(FileTooLong, MethodTooLong);
 
         private static readonly LocalizableString DL0100Title = LoadString(nameof(Resources.DL0100Title));
         private static readonly LocalizableString DL0100Message = LoadString(nameof(Resources.DL0100Message));
