@@ -8,7 +8,7 @@ namespace DarkLinesOfCodeAnalyzer
 {
     internal static class MethodAnalyzer
     {
-        private const int _maxLinesPerMethod = 10;
+        private const int _maxLinesPerMethod = 30;
 
         public static void Analyze(CodeBlockAnalysisContext context)
         {

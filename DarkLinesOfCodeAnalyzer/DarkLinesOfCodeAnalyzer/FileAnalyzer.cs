@@ -4,7 +4,7 @@ namespace DarkLinesOfCodeAnalyzer
 {
     internal static class FileAnalyzer
     {
-        private const int _maxLinesPerFile = 100;
+        private const int _maxLinesPerFile = 900;
 
         public static void Analyze(SyntaxTreeAnalysisContext context)
         {
