@@ -1,5 +1,4 @@
-﻿using DarkLinesOfCodeAnalyzer.Properties;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 
@@ -7,8 +6,6 @@ namespace DarkLinesOfCodeAnalyzer
 {
     internal static class Diagnostics
     {
-        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(ClassTooLong, MethodTooLong);
-
         private static readonly LocalizableString DL0100Title = LoadString(nameof(Resources.DL0100Title));
         private static readonly LocalizableString DL0100Message = LoadString(nameof(Resources.DL0100Message));
         private static readonly LocalizableString DL0100Description = LoadString(nameof(Resources.DL0100Description));
@@ -39,6 +36,8 @@ namespace DarkLinesOfCodeAnalyzer
                 isEnabledByDefault: true,
                 description: DL0200Description,
                 helpLinkUri: Constants.ProjectUrl);
+
+        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(ClassTooLong, MethodTooLong);
 
         public static void ReportClassTooLong(SyntaxNodeAnalysisContext context, Location location, string className, int amountOfLines)
         {

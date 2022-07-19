@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\..\src\DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.csproj"
-                      PrivateAssets="all"
-                      ReferenceOutputAssembly="false"
-                      OutputItemType="Analyzer" />
+	  <ProjectReference Include="..\..\src\DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer"/>
   </ItemGroup>
 
 </Project>
