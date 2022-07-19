@@ -26,3 +26,10 @@ The analyzer is very basic at the moment, the planned feature roadmap:
 - ✅ max 900 lines per file
 - ✅ max 30 lines per class
 - 🔲 ignore blank lines
+
+## Example
+The resulting warning might look like this:
+```log
+> C:\Projects\demo-app\DemoConsoleApp\WeatherService.cs(5,5,1078,6): warning DL0100: The class 'WeatherService' contains 1076 lines of code, maximum recommended amount of lines per class is 900 lines
+> C:\Projects\demo-app\DemoConsoleApp\WeatherService.cs(8,9,1077,10): warning DL0200: The method 'GetForecastForCity' contains 48 lines of code, maximum recommended amount of lines per method is 30 lines
+```
