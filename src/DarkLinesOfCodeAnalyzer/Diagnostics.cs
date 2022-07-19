@@ -2,13 +2,12 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
-using System.Linq;
 
 namespace DarkLinesOfCodeAnalyzer
 {
     internal static class Diagnostics
     {
-        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(FileTooLong, MethodTooLong);
+        public static ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(ClassTooLong, MethodTooLong);
 
         private static readonly LocalizableString DL0100Title = LoadString(nameof(Resources.DL0100Title));
         private static readonly LocalizableString DL0100Message = LoadString(nameof(Resources.DL0100Message));
@@ -19,9 +18,9 @@ namespace DarkLinesOfCodeAnalyzer
 
         private const string Category = "Design";
 
-        private static readonly DiagnosticDescriptor FileTooLong =
+        private static readonly DiagnosticDescriptor ClassTooLong =
             new DiagnosticDescriptor(
-                DiagnosticIds.FileTooLong,
+                DiagnosticIds.ClassTooLong,
                 DL0100Title,
                 DL0100Message,
                 Category,
@@ -41,23 +40,21 @@ namespace DarkLinesOfCodeAnalyzer
                 description: DL0200Description,
                 helpLinkUri: Contants.ProjectUrl);
 
-        public static void ReportFileTooLong(SyntaxTreeAnalysisContext context, int amountOfLines, int maxLinesPerFile)
+        public static void ReportClassTooLong(SyntaxNodeAnalysisContext context, Location location, string className, int amountOfLines, int maxLinesPerClass)
         {
-            var location = context.Tree.GetLocation(context.Tree.GetText().Lines.FirstOrDefault().Span);
-            var diagnostic = Diagnostic.Create(FileTooLong, location, amountOfLines, maxLinesPerFile);
+            var diagnostic = Diagnostic.Create(ClassTooLong, location, className, amountOfLines, maxLinesPerClass);
             context.ReportDiagnostic(diagnostic);
         }
 
-        public static void ReportMethodTooLong(CodeBlockAnalysisContext context, IMethodSymbol method, int amountOfLines, int maxLinesPerMethod)
+        public static void ReportMethodTooLong(SyntaxNodeAnalysisContext context, Location location, string methodName, int amountOfLines, int maxLinesPerMethod)
         {
-            foreach (var location in method.Locations)
-            {
-                var diagnostic = Diagnostic.Create(MethodTooLong, location, method.Name, amountOfLines, maxLinesPerMethod);
-                context.ReportDiagnostic(diagnostic);
-            }
+            var diagnostic = Diagnostic.Create(MethodTooLong, location, methodName, amountOfLines, maxLinesPerMethod);
+            context.ReportDiagnostic(diagnostic);
         }
 
-        private static LocalizableResourceString LoadString(string name) =>
-            new LocalizableResourceString(name, Resources.ResourceManager, typeof(Resources));
+        private static LocalizableResourceString LoadString(string name)
+        {
+            return new LocalizableResourceString(name, Resources.ResourceManager, typeof(Resources));
+        }
     }
 }

@@ -1,8 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-using System.Linq;
 
 namespace DarkLinesOfCodeAnalyzer
 {
@@ -10,31 +7,19 @@ namespace DarkLinesOfCodeAnalyzer
     {
         private const int _maxLinesPerMethod = 30;
 
-        public static void Analyze(CodeBlockAnalysisContext context)
+        public static void Analyze(SyntaxNodeAnalysisContext context)
         {
-            if (context.OwningSymbol.Kind != SymbolKind.Method)
+            if (!(context.Node is MethodDeclarationSyntax methodSyntax))
             {
                 return;
             }
 
-            var method = (IMethodSymbol)context.OwningSymbol;
-            var block = (BlockSyntax)context.CodeBlock.ChildNodes().FirstOrDefault(n => n.Kind() == SyntaxKind.Block);
-
-            if (block is null)
-            {
-                return;
-            }
-
-            if (block.Statements.Count == 0)
-            {
-                return;
-            }
-
-            var amountOfLines = block.SyntaxTree.GetText().Lines.Count;
+            var amountOfLines = methodSyntax.GetText().Lines.Count;
 
             if (amountOfLines > _maxLinesPerMethod)
             {
-                Diagnostics.ReportMethodTooLong(context, method, amountOfLines, _maxLinesPerMethod);
+                var location = context.Node.GetLocation();
+                Diagnostics.ReportMethodTooLong(context, location, methodSyntax.Identifier.ValueText, amountOfLines, _maxLinesPerMethod);
             }
         }
     }

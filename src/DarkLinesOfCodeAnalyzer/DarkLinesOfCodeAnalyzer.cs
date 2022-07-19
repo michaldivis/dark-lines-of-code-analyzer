@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System;
 using System.Collections.Immutable;
@@ -13,19 +14,19 @@ namespace DarkLinesOfCodeAnalyzer
 
         public override void Initialize(AnalysisContext context)
         {
-            context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
+            context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.Analyze|GeneratedCodeAnalysisFlags.ReportDiagnostics);
 
-            context.RegisterSyntaxTreeAction(AnalyzeSyntaxTree);
-            context.RegisterCodeBlockAction(AnalyzeCodeBlock);
+            context.RegisterSyntaxNodeAction(AnalyzeClassDeclaration, SyntaxKind.ClassDeclaration);
+            context.RegisterSyntaxNodeAction(AnalyzeMethodDeclaration, SyntaxKind.MethodDeclaration);
         }
 
-        private static void AnalyzeSyntaxTree(SyntaxTreeAnalysisContext context)
+        private static void AnalyzeClassDeclaration(SyntaxNodeAnalysisContext context)
         {
-            HandleAnalyze(() => FileAnalyzer.Analyze(context));
+            HandleAnalyze(() => ClassAnalyzer.Analyze(context));
         }
 
-        private static void AnalyzeCodeBlock(CodeBlockAnalysisContext context)
+        private static void AnalyzeMethodDeclaration(SyntaxNodeAnalysisContext context)
         {
             HandleAnalyze(() => MethodAnalyzer.Analyze(context));
         }

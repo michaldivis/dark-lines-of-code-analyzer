@@ -70,7 +70,7 @@ namespace DarkLinesOfCodeAnalyzer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file contains {0} lines of code, maximum recommended amount of lines per file is {1} lines.
+        ///   Looks up a localized string similar to The class &apos;{0}&apos; contains {1} lines of code, maximum recommended amount of lines per file is {2} lines.
         /// </summary>
         internal static string DL0100Message {
             get {
@@ -79,7 +79,7 @@ namespace DarkLinesOfCodeAnalyzer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file contains too many lines of code.
+        ///   Looks up a localized string similar to The class contains too many lines of code.
         /// </summary>
         internal static string DL0100Title {
             get {
