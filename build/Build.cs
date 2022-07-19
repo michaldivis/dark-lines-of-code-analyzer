@@ -13,8 +13,8 @@ class Build : NukeBuild
 {
     public static int Main() => Execute<Build>(x => x.Pack);
 
-    private const string CoreProjectName = "DarkLinesOfCodeAnalyzer";
-    private const string PackageProjectName = "DarkLinesOfCodeAnalyzer.Package";
+    private const string CoreProjectName = "DarkLinesOfCode";
+    private const string PackageProjectName = "DarkLinesOfCode.Package";
 
     [Solution] readonly Solution Solution;
 
