@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer", "DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.csproj", "{76BE610F-8E2B-4B7D-9688-6D08F94E1C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer", "src\DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.csproj", "{76BE610F-8E2B-4B7D-9688-6D08F94E1C36}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer.Package", "DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.Package\DarkLinesOfCodeAnalyzer.Package.csproj", "{8902D732-DBE1-4B73-98DE-8F89158F0323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer.Package", "src\DarkLinesOfCodeAnalyzer.Package\DarkLinesOfCodeAnalyzer.Package.csproj", "{8902D732-DBE1-4B73-98DE-8F89158F0323}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer.Vsix", "DarkLinesOfCodeAnalyzer\DarkLinesOfCodeAnalyzer.Vsix\DarkLinesOfCodeAnalyzer.Vsix.csproj", "{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkLinesOfCodeAnalyzer.Vsix", "src\DarkLinesOfCodeAnalyzer.Vsix\DarkLinesOfCodeAnalyzer.Vsix.csproj", "{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BBDD7E3B-A42A-4402-86B2-91F34E01323A}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{0B53752D-4D32-4666-B663-0D23C15A9DF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoConsoleApp", "demos\DemoConsoleApp\DemoConsoleApp.csproj", "{7AE37B81-BFB3-4397-AB35-EB281657D6B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoConsoleApp", "demos\DemoConsoleApp\DemoConsoleApp.csproj", "{7AE37B81-BFB3-4397-AB35-EB281657D6B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{76BE610F-8E2B-4B7D-9688-6D08F94E1C36} = {13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}
+		{8902D732-DBE1-4B73-98DE-8F89158F0323} = {13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}
+		{2630F4AF-4539-4C1D-AE42-B438CFD3AFAB} = {13EF6BE9-9EF2-45E9-9A0C-BC6E0780FB1F}
 		{7AE37B81-BFB3-4397-AB35-EB281657D6B0} = {0B53752D-4D32-4666-B663-0D23C15A9DF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
