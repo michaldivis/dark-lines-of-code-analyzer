@@ -4,6 +4,7 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
+using System.Linq;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
@@ -11,7 +12,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [ShutdownDotNetAfterServerBuild]
 class Build : NukeBuild
 {
-    public static int Main() => Execute<Build>(x => x.Pack);
+    public static int Main() => Execute<Build>(x => x.PushNuget);
 
     private const string CoreProjectName = "DarkLinesOfCode";
     private const string PackageProjectName = "DarkLinesOfCode.Package";
@@ -20,6 +21,9 @@ class Build : NukeBuild
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
+
+    [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
+    [Parameter] readonly string NugetApiKey;
 
     readonly Configuration Configuration = Configuration.Release;
 
@@ -75,5 +79,23 @@ class Build : NukeBuild
               .EnableNoBuild()
               .EnableNoRestore()
               .SetOutputDirectory(ArtifactsDirectory));
+        });
+
+    Target PushNuget => _ => _
+        .DependsOn(Pack)
+        .Requires(() => NugetApiUrl)
+        .Requires(() => NugetApiKey)
+        .Executes(() =>
+        {
+            GlobFiles(ArtifactsDirectory, "*.nupkg")
+               .Where(x => !string.IsNullOrEmpty(x) && !x.EndsWith("symbols.nupkg"))
+               .ForEach(x =>
+               {
+                   DotNetNuGetPush(s => s
+                       .SetTargetPath(x)
+                       .SetSource(NugetApiUrl)
+                       .SetApiKey(NugetApiKey)
+                   );
+               });
         });
 }

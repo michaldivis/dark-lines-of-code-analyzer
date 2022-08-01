@@ -39,6 +39,12 @@
           "type": "boolean",
           "description": "Disables displaying the NUKE logo"
         },
+        "NugetApiKey": {
+          "type": "string"
+        },
+        "NugetApiUrl": {
+          "type": "string"
+        },
         "Partition": {
           "type": "string",
           "description": "Partition to use on CI"
@@ -68,6 +74,7 @@
               "CompileCore",
               "CompilePackage",
               "Pack",
+              "PushNuget",
               "RestoreCore",
               "RestorePackage"
             ]
@@ -87,6 +94,7 @@
               "CompileCore",
               "CompilePackage",
               "Pack",
+              "PushNuget",
               "RestoreCore",
               "RestorePackage"
             ]
